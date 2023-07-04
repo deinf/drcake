@@ -20,14 +20,17 @@ class Body extends StatelessWidget {
           children: [
             const Text(
               "DR CAKE",
-              style: TextStyle(fontWeight: FontWeight.bold),
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 25,
+                  color: kPrimaryColor),
             ),
             SizedBox(
               height: size.height * 0.05,
             ),
             Image.asset(
               Assets.mainBg,
-              scale: 2,
+              scale: 6,
               fit: BoxFit.none,
             ),
             SizedBox(

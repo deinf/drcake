@@ -42,7 +42,7 @@ class _BodyState extends State<Body> {
             ),
             Image.asset(
               Assets.signUpImage,
-              scale: 2,
+              scale: 6,
               fit: BoxFit.none,
             ),
             SizedBox(

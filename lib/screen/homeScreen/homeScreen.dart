@@ -80,6 +80,8 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Future<void> _onRefresh() async {
+    FocusScope.of(context).unfocus();
+    controller.text = "";
     getDataCabangD();
     setState(() {});
   }
@@ -256,8 +258,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                                 .namaPengujian,
                                           ),
                                           transition: Transition.rightToLeft);
-                                      if (data['data'] == "hapus") {
-                                        _onRefresh();
+
+                                      if (data != null) {
+                                        if (data['data'] == "hapus") {
+                                          _onRefresh();
+                                        }
                                       }
                                     },
                                     child: Container(
@@ -281,7 +286,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                             Container(
                                               width: 10,
                                               decoration: const BoxDecoration(
-                                                  color: Colors.red,
+                                                  color: Color.fromRGBO(
+                                                      84, 191, 165, 1),
                                                   borderRadius:
                                                       BorderRadius.only(
                                                           topLeft:

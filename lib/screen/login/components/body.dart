@@ -42,7 +42,7 @@ class _BodyState extends State<Body> {
             ),
             Image.asset(
               Assets.loginImage,
-              scale: 2,
+              scale: 6,
               fit: BoxFit.none,
             ),
             SizedBox(
@@ -64,7 +64,7 @@ class _BodyState extends State<Body> {
             ),
             pengecekanUsername == false
                 ? Container()
-                : Text(
+                : const Text(
                     "Username harus diisi!",
                     style: TextStyle(color: kPrimaryColor, fontSize: 12),
                   ),
@@ -81,7 +81,7 @@ class _BodyState extends State<Body> {
             ),
             pengecekanLogin == false
                 ? Container()
-                : Text(
+                : const Text(
                     "Pasword harus diisi!",
                     style: TextStyle(color: kPrimaryColor, fontSize: 12),
                   ),

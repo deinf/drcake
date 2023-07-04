@@ -1,5 +1,5 @@
 class ApiEndPoints {
-  static final String baseUrl = "http://35.219.98.176:5000/drcake/";
+  static final String baseUrl = "http://103.175.218.145:5000/drcake/";
   static _AuthEndPoints authEndPoints = _AuthEndPoints();
   static final String apikey = "masuk321";
 }
