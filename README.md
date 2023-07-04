@@ -1,16 +1,21 @@
-# drcake
 
-A new Flutter project.
+# DRCAKE
 
-## Getting Started
+Jika ingin run project atau build project sendiri ikuti langkah di bawah ya
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+## Installation
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+pastikan flutter yang dipakai versi 3.10.5 atau keatas
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```bash
+  cd project-folder
+  flutter run
+```
+
+Perintah build
+
+```bash
+  flutter build apk --release
+```
+    
