@@ -77,7 +77,7 @@ class _TambahLokasiItemState extends State<TambahLokasiItem> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text("Nama Lokasi"),
+                    const Text("Nama Lokasi (Alamat / Daerah)"),
                     RoundedInputField(
                       controller: namaLokasi,
                       onChanged: (value) {
@@ -92,7 +92,7 @@ class _TambahLokasiItemState extends State<TambahLokasiItem> {
                     ),
                     pengecekanNama == false
                         ? Container()
-                        : Text(
+                        : const Text(
                             "Nama Lokasi harus diisi!",
                             style:
                                 TextStyle(color: kPrimaryColor, fontSize: 12),
@@ -100,7 +100,7 @@ class _TambahLokasiItemState extends State<TambahLokasiItem> {
                     const SizedBox(
                       height: 10,
                     ),
-                    const Text("Luas Lokasi"),
+                    const Text("Luas Lokasi (m\u00B2)"),
                     RoundedInputField(
                       controller: luasLokasi,
                       isNumber: true,
@@ -118,7 +118,7 @@ class _TambahLokasiItemState extends State<TambahLokasiItem> {
                     ),
                     pengecekanluas == false
                         ? Container()
-                        : Text(
+                        : const Text(
                             "Luas Lokasi harus diisi!",
                             style:
                                 TextStyle(color: kPrimaryColor, fontSize: 12),
@@ -126,7 +126,7 @@ class _TambahLokasiItemState extends State<TambahLokasiItem> {
                     const SizedBox(
                       height: 10,
                     ),
-                    const Text("Harga"),
+                    const Text("Harga (Rp)"),
                     RoundedInputField(
                       isNumber: true,
                       controller: harga,
@@ -142,7 +142,7 @@ class _TambahLokasiItemState extends State<TambahLokasiItem> {
                     ),
                     pengecekanHarga == false
                         ? Container()
-                        : Text(
+                        : const Text(
                             "Harga harus diisi!",
                             style:
                                 TextStyle(color: kPrimaryColor, fontSize: 12),
@@ -150,7 +150,7 @@ class _TambahLokasiItemState extends State<TambahLokasiItem> {
                     const SizedBox(
                       height: 10,
                     ),
-                    const Text("Kepadatan"),
+                    const Text("Kepadatan (Jiwa)"),
                     RoundedInputField(
                       isNumber: true,
                       controller: kepadatan,
@@ -166,7 +166,7 @@ class _TambahLokasiItemState extends State<TambahLokasiItem> {
                     ),
                     penegcekanKepadatan == false
                         ? Container()
-                        : Text(
+                        : const Text(
                             "Kepadatan penduduk harus diisi!",
                             style:
                                 TextStyle(color: kPrimaryColor, fontSize: 12),
@@ -174,7 +174,7 @@ class _TambahLokasiItemState extends State<TambahLokasiItem> {
                     const SizedBox(
                       height: 10,
                     ),
-                    const Text("Kantor Terdekat"),
+                    const Text("Kantor Terdekat (Kantor)"),
                     RoundedInputField(
                       isNumber: true,
                       controller: kantorTerdekat,
@@ -190,7 +190,7 @@ class _TambahLokasiItemState extends State<TambahLokasiItem> {
                     ),
                     pengecekanKantor == false
                         ? Container()
-                        : Text(
+                        : const Text(
                             "Kantor terdekat harus diisi!",
                             style:
                                 TextStyle(color: kPrimaryColor, fontSize: 12),
@@ -198,7 +198,7 @@ class _TambahLokasiItemState extends State<TambahLokasiItem> {
                     const SizedBox(
                       height: 10,
                     ),
-                    const Text("Toko Kue Sekitar 2KM"),
+                    const Text("Toko Kue Sekitar 2 KM (Toko)"),
                     RoundedInputField(
                       isNumber: true,
                       controller: tokoKueTerdekat,
@@ -214,7 +214,7 @@ class _TambahLokasiItemState extends State<TambahLokasiItem> {
                     ),
                     pengecekanToko == false
                         ? Container()
-                        : Text(
+                        : const Text(
                             "Toko Terdekat harus diisi!",
                             style:
                                 TextStyle(color: kPrimaryColor, fontSize: 12),
@@ -228,6 +228,9 @@ class _TambahLokasiItemState extends State<TambahLokasiItem> {
               RoundedButton(
                 text: "Simpan",
                 press: () {
+                  // String string = luasLokasi.text;
+
+                  // print(string.replaceAll(r'.', ''));
                   if (namaLokasi.text.trim() == "") {
                     namaLokasifocus.requestFocus();
                     pengecekanNama = true;
@@ -256,11 +259,15 @@ class _TambahLokasiItemState extends State<TambahLokasiItem> {
                     pengecekanToko = false;
                     Lokasi lokasi = Lokasi();
                     lokasi.namaLokasi = namaLokasi.text.trim();
-                    lokasi.luas = int.parse(luasLokasi.text);
-                    lokasi.harga = int.parse(harga.text);
-                    lokasi.kepadatanpenduduk = int.parse(kepadatan.text);
-                    lokasi.kantorterdekat = int.parse(kantorTerdekat.text);
-                    lokasi.tokokueterdekat = int.parse(tokoKueTerdekat.text);
+                    lokasi.luas =
+                        int.parse(luasLokasi.text.replaceAll(r'.', ''));
+                    lokasi.harga = int.parse(harga.text.replaceAll(r'.', ''));
+                    lokasi.kepadatanpenduduk =
+                        int.parse(kepadatan.text.replaceAll(r'.', ''));
+                    lokasi.kantorterdekat =
+                        int.parse(kantorTerdekat.text.replaceAll(r'.', ''));
+                    lokasi.tokokueterdekat =
+                        int.parse(tokoKueTerdekat.text.replaceAll(r'.', ''));
                     // print("lokasi $lokasi");
 
                     Get.back(result: {
@@ -333,7 +340,10 @@ class RoundedInputField extends StatelessWidget {
         keyboardType:
             isNumber == true ? TextInputType.number : TextInputType.text,
         inputFormatters: isNumber == true
-            ? <TextInputFormatter>[FilteringTextInputFormatter.digitsOnly]
+            ? <TextInputFormatter>[
+                FilteringTextInputFormatter.digitsOnly,
+                ThousandsSeparatorInputFormatter()
+              ]
             : null,
         focusNode: focusNode,
         maxLines: maxline,
@@ -343,5 +353,51 @@ class RoundedInputField extends StatelessWidget {
             InputDecoration(hintText: hinText, border: InputBorder.none),
       ),
     );
+  }
+}
+
+class ThousandsSeparatorInputFormatter extends TextInputFormatter {
+  static const separator = '.'; // Change this to '.' for other locales
+
+  @override
+  TextEditingValue formatEditUpdate(
+      TextEditingValue oldValue, TextEditingValue newValue) {
+    // Short-circuit if the new value is empty
+    if (newValue.text.length == 0) {
+      return newValue.copyWith(text: '');
+    }
+
+    // Handle "deletion" of separator character
+    String oldValueText = oldValue.text.replaceAll(separator, '');
+    String newValueText = newValue.text.replaceAll(separator, '');
+
+    if (oldValue.text.endsWith(separator) &&
+        oldValue.text.length == newValue.text.length + 1) {
+      newValueText = newValueText.substring(0, newValueText.length - 1);
+    }
+
+    // Only process if the old value and new value are different
+    if (oldValueText != newValueText) {
+      int selectionIndex =
+          newValue.text.length - newValue.selection.extentOffset;
+      final chars = newValueText.split('');
+
+      String newString = '';
+      for (int i = chars.length - 1; i >= 0; i--) {
+        if ((chars.length - 1 - i) % 3 == 0 && i != chars.length - 1)
+          newString = separator + newString;
+        newString = chars[i] + newString;
+      }
+
+      return TextEditingValue(
+        text: newString.toString(),
+        selection: TextSelection.collapsed(
+          offset: newString.length - selectionIndex,
+        ),
+      );
+    }
+
+    // If the new value and old value are the same, just return as-is
+    return newValue;
   }
 }

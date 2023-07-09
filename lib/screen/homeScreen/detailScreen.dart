@@ -128,89 +128,120 @@ class _DetaiLLokasiScreenState extends State<DetaiLLokasiScreen> {
                                   style: TextStyle(
                                       fontSize: 14, color: kPrimaryColor),
                                 ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                const SizedBox(
+                                  height: 10,
+                                ),
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     const Text(
-                                      "Nama Lokasi",
+                                      "Nama Lokasi (Alamat / Daerah) :",
                                       style: TextStyle(fontSize: 14),
                                     ),
-                                    Text(
-                                      widget.lokasi![item].namaLokasi!,
-                                      style: const TextStyle(
-                                          fontSize: 14, color: kPrimaryColor),
+                                    SizedBox(
+                                      width: size.width,
+                                      child: Text(
+                                        widget.lokasi![item].namaLokasi!,
+                                        textAlign: TextAlign.right,
+                                        style: const TextStyle(
+                                            fontSize: 14, color: kPrimaryColor),
+                                      ),
                                     ),
                                   ],
                                 ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     const Text(
-                                      "Luas Lokasi",
+                                      "Luas Lokasi :",
                                       style: TextStyle(fontSize: 14),
                                     ),
-                                    Text(
-                                      NumberFormat()
-                                          .format(widget.lokasi![item].luas)
-                                          .toString(),
-                                      style: const TextStyle(
-                                          fontSize: 14, color: kPrimaryColor),
+                                    SizedBox(
+                                      width: size.width,
+                                      child: Text(
+                                        "${NumberFormat().format(widget.lokasi![item].luas).toString()} m\u00B2",
+                                        textAlign: TextAlign.right,
+                                        style: const TextStyle(
+                                            fontSize: 14, color: kPrimaryColor),
+                                      ),
                                     ),
                                   ],
                                 ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     const Text(
-                                      "Kepadatan Penduduk",
+                                      "Harga :",
                                       style: TextStyle(fontSize: 14),
                                     ),
-                                    Text(
-                                      NumberFormat()
-                                          .format(widget
-                                              .lokasi![item].kepadatanpenduduk)
-                                          .toString(),
-                                      style: const TextStyle(
-                                          fontSize: 14, color: kPrimaryColor),
+                                    SizedBox(
+                                      width: size.width,
+                                      child: Text(
+                                        "Rp ${NumberFormat().format(widget.lokasi![item].harga).toString()}",
+                                        textAlign: TextAlign.right,
+                                        style: const TextStyle(
+                                            fontSize: 14, color: kPrimaryColor),
+                                      ),
                                     ),
                                   ],
                                 ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     const Text(
-                                      "Kantor Terdekat",
+                                      "Kepadatan Penduduk :",
                                       style: TextStyle(fontSize: 14),
                                     ),
-                                    Text(
-                                      NumberFormat()
-                                          .format(widget
-                                              .lokasi![item].kantorterdekat)
-                                          .toString(),
-                                      style: const TextStyle(
-                                          fontSize: 14, color: kPrimaryColor),
+                                    SizedBox(
+                                      width: size.width,
+                                      child: Text(
+                                        "${NumberFormat().format(widget.lokasi![item].kepadatanpenduduk).toString()} Jiwa",
+                                        textAlign: TextAlign.right,
+                                        style: const TextStyle(
+                                            fontSize: 14, color: kPrimaryColor),
+                                      ),
                                     ),
                                   ],
                                 ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     const Text(
-                                      "Toko Kue Terdekat",
+                                      "Kantor Terdekat :",
                                       style: TextStyle(fontSize: 14),
                                     ),
-                                    Text(
-                                      NumberFormat()
-                                          .format(widget
-                                              .lokasi![item].tokokueterdekat)
-                                          .toString(),
-                                      style: const TextStyle(
-                                          fontSize: 14, color: kPrimaryColor),
+                                    SizedBox(
+                                      width: size.width,
+                                      child: Text(
+                                        "${NumberFormat().format(widget.lokasi![item].kantorterdekat).toString()} Kantor",
+                                        textAlign: TextAlign.right,
+                                        style: const TextStyle(
+                                            fontSize: 14, color: kPrimaryColor),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    const Text(
+                                      "Toko Kue Terdekat :",
+                                      style: TextStyle(fontSize: 14),
+                                    ),
+                                    SizedBox(
+                                      width: size.width,
+                                      child: Text(
+                                        "${NumberFormat().format(widget.lokasi![item].tokokueterdekat).toString()} Toko",
+                                        textAlign: TextAlign.right,
+                                        style: const TextStyle(
+                                            fontSize: 14, color: kPrimaryColor),
+                                      ),
                                     ),
                                   ],
                                 )
